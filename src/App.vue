@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+    <div id="header">
+      <h1>珠海新冠状病毒感染确诊病例</h1>
+      <p>所有数据来源于 <a target="_blank" href="https://mp.weixin.qq.com/s/vaZNEe1GNSd9NhAQ4GMcBQ">Love珠海</a> ，仅供参考</p>
+    </div>
+    <div id="container"></div>
   </div>
 </template>
 
@@ -11,7 +16,7 @@ export default {
   mounted () {
     const BMap = window.BMap
     const BMapLib = window.BMapLib
-    const map = new BMap.Map('app')
+    const map = new BMap.Map('container')
     const heatmapOverlay = new BMapLib.HeatmapOverlay({ radius: 10 })
     map.centerAndZoom(new BMap.Point(data[0].lng, data[0].lat), 11)
     map.addOverlay(heatmapOverlay)
@@ -22,7 +27,28 @@ export default {
 </script>
 
 <style lang="less">
-#app {
+#app, #container {
   height: 100%;
+}
+#header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 6px 0;
+  text-align: center;
+  background-color: #ffffff;
+  z-index: 1;
+  > h1 {
+    font-size: 16px;
+    color: #333;
+  }
+  > p {
+    margin-top: 1px;
+    font-size: 12px;
+    color: #777;
+    > a {
+      color: #576b95;
+    }
+  }
 }
 </style>
