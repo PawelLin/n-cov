@@ -1,28 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import data from '@/assets/data'
 
 export default {
   name: 'app',
-  components: {
-    HelloWorld
+  mounted () {
+    const BMap = window.BMap
+    const BMapLib = window.BMapLib
+    const map = new BMap.Map('app')
+    const heatmapOverlay = new BMapLib.HeatmapOverlay({ radius: 10 })
+    map.centerAndZoom(new BMap.Point(data[0].lng, data[0].lat), 11)
+    map.addOverlay(heatmapOverlay)
+    heatmapOverlay.setDataSet({ data: data[0].data, max: data[0].max })
+    heatmapOverlay.show()
   }
 }
 </script>
 
 <style lang="less">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>
