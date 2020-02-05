@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="header">
-      <h1>珠海新冠状病毒感染确诊病例</h1>
-      <p>所有数据来源于 <a target="_blank" href="https://mp.weixin.qq.com/s/vaZNEe1GNSd9NhAQ4GMcBQ">Love珠海</a> ，仅供参考</p>
+      <h1>珠海新冠状病毒感染确诊热力图</h1>
+      <p>所有数据来源于 <a target="_blank" href="https://mp.weixin.qq.com/s/KG8arbEJDtwduYzfG3sTfA">珠海发布</a> ，仅供参考</p>
     </div>
     <div id="container"></div>
   </div>
